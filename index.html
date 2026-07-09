@@ -757,6 +757,101 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
   font-size:0.92em;
 }
 
+/* ---------- workflow (modular / linear) ---------- */
+.workflow-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.workflow-card{
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  border-radius:16px;
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+.workflow-card.modular{
+  border-color:rgba(255,180,84,0.4);
+  background:linear-gradient(160deg, var(--amber-dim), var(--panel) 60%);
+}
+.workflow-card.linear{
+  border-color:rgba(79,209,197,0.4);
+  background:linear-gradient(160deg, var(--teal-dim), var(--panel) 60%);
+}
+.workflow-title{display:flex;align-items:center;gap:9px;}
+.workflow-title .ic{font-size:1.5em;}
+.workflow-title .name{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:clamp(15px,2vw,19px);
+  color:var(--text-hi);
+}
+.workflow-desc{
+  font-size:clamp(11px,1.35vw,13px);
+  color:var(--text-mid);
+  line-height:1.45;
+}
+.workflow-desc b{color:var(--text-hi);}
+
+.hub-diagram{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.hub-node{
+  background:var(--panel-2);
+  border:1px solid var(--panel-border);
+  border-radius:10px;
+  padding:7px 16px;
+  font-family:var(--mono);
+  font-weight:700;
+  font-size:clamp(10.5px,1.3vw,12.5px);
+  color:var(--text-hi);
+}
+.hub-spokes{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;}
+.spoke-node{
+  background:rgba(0,0,0,0.15);
+  border:1px dashed var(--panel-border);
+  border-radius:8px;
+  padding:5px 10px;
+  font-family:var(--mono);
+  font-size:clamp(9.5px,1.2vw,11px);
+  color:var(--text-mid);
+}
+
+.linear-diagram{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;}
+.linear-node{
+  background:var(--panel-2);
+  border:1px solid var(--panel-border);
+  border-radius:8px;
+  padding:6px 10px;
+  font-family:var(--mono);
+  font-size:clamp(9.5px,1.2vw,11px);
+  color:var(--text-hi);
+}
+.linear-arrow{color:var(--text-dim);font-family:var(--mono);font-size:12px;}
+
+.pros-cons{display:flex;flex-direction:column;gap:7px;}
+.pc-label{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+}
+.pc-list{list-style:none;display:flex;flex-direction:column;gap:3px;padding:0;margin:0 0 6px 0;}
+.pc-list li{
+  font-size:clamp(10.5px,1.3vw,12px);
+  color:var(--text-mid);
+  line-height:1.4;
+  padding-left:15px;
+  position:relative;
+}
+.pc-list.pros li::before{content:"+";position:absolute;left:0;color:var(--teal);font-weight:700;}
+.pc-list.cons li::before{content:"\2013";position:absolute;left:0;color:var(--coral);font-weight:700;}
+
+@media (max-width:768px){
+  .workflow-grid{grid-template-columns:1fr;}
+}
+
 /* ---------- nav ---------- */
 .progress-bar{
   position:fixed;top:0;left:0;height:3px;
@@ -1375,6 +1470,71 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
       <div class="takeaway">
         <span class="ic">&#128161;</span>
         <p>Sebelum bikin skill dari nol, cek dulu &mdash; bisa jadi udah ada yang bikin, malah lebih matang dari yang kamu bayangin.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 6 -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 06</span>
+      <h2 class="headline">Bikin Workflow: <em>Modular</em> vs <em>Linear</em></h2>
+      <p class="lede">Dua cara nyusun kerja bareng multi-agent. Pilihannya tergantung kebutuhan.</p>
+
+      <div class="workflow-grid">
+        <div class="workflow-card modular">
+          <div class="workflow-title"><span class="ic">&#127919;</span><span class="name">Modular</span></div>
+          <p class="workflow-desc">Ada 1 <b>orchestrator</b> yang mutusin sendiri agent mana yang perlu dipanggil, sesuai kebutuhan saat itu.</p>
+          <div class="hub-diagram">
+            <div class="hub-node">Orchestrator</div>
+            <div class="hub-spokes">
+              <span class="spoke-node">&#8674; Agent A</span>
+              <span class="spoke-node">&#8674; Agent B</span>
+              <span class="spoke-node">&#8674; Agent C</span>
+            </div>
+          </div>
+          <div class="pros-cons">
+            <span class="pc-label">Plus / Minus</span>
+            <ul class="pc-list pros">
+              <li>Fleksibel &mdash; orchestrator bisa adaptasi urutan sesuai kasus</li>
+              <li>Gampang di-scale, tinggal nambah agent baru</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Hasil &amp; urutan eksekusi bisa beda tiap run (kurang predictable)</li>
+              <li>Lebih mahal &amp; lambat &mdash; ada overhead "mikir siapa yang dipanggil"</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="workflow-card linear">
+          <div class="workflow-title"><span class="ic">&#128205;</span><span class="name">Linear</span></div>
+          <p class="workflow-desc">Kita yang tentuin flow-nya di depan. Abis A, lanjut B, lanjut C, dst &mdash; urutannya fix.</p>
+          <div class="linear-diagram">
+            <span class="linear-node">Ambil Data</span>
+            <span class="linear-arrow">&#8594;</span>
+            <span class="linear-node">Analisa</span>
+            <span class="linear-arrow">&#8594;</span>
+            <span class="linear-node">Bikin Output</span>
+            <span class="linear-arrow">&#8594;</span>
+            <span class="linear-node">Cek Kualitas</span>
+          </div>
+          <div class="pros-cons">
+            <span class="pc-label">Plus / Minus</span>
+            <ul class="pc-list pros">
+              <li>Predictable &amp; konsisten &mdash; gampang di-QA</li>
+              <li>Lebih murah &amp; cepat, tanpa overhead delegasi</li>
+            </ul>
+            <ul class="pc-list cons">
+              <li>Kaku &mdash; kasus di luar flow yang udah ditentuin bisa nyangkut</li>
+              <li>Kurang scalable buat kasus yang variasinya banyak</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>Gak ada yang paling benar. <b>Modular</b> buat kasus yang variatif &amp; butuh judgment; <b>Linear</b> buat proses yang udah jelas &amp; butuh konsistensi.</p>
       </div>
     </div>
   </div>
