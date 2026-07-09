@@ -709,11 +709,24 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
   color:var(--text-mid);
   line-height:1.45;
 }
+.skill-card .src{
+  font-family:var(--mono);
+  font-size:9.5px;
+  color:var(--text-dim);
+  word-break:break-all;
+  margin-top:auto;
+  padding-top:4px;
+}
+.skill-card .src a{color:var(--teal);text-decoration:none;}
+.skill-card .src a:hover{text-decoration:underline;}
+.skill-legend-grid.cols-3{grid-template-columns:repeat(3,1fr);}
 @media (max-width:768px){
   .skill-legend-grid{grid-template-columns:repeat(2,1fr);}
+  .skill-legend-grid.cols-3{grid-template-columns:repeat(2,1fr);}
 }
 @media (max-width:480px){
   .skill-legend-grid{grid-template-columns:1fr;}
+  .skill-legend-grid.cols-3{grid-template-columns:1fr;}
 }
 
 /* ---------- step list ---------- */
@@ -1321,6 +1334,47 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
       <div class="takeaway">
         <span class="ic">&#128161;</span>
         <p>Best practice: tulis deskripsi skill kamu se-spesifik mungkin. Itu yang jadi <b>"radar"</b> buat Claude nentuin kapan skill itu harus dipanggil.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 5 -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 05</span>
+      <h2 class="headline">Gak Punya Skill? <em>Cari Aja</em></h2>
+      <p class="lede">Skill itu ekosistem terbuka &mdash; banyak yang udah dibikin orang lain, tinggal pakai.</p>
+
+      <div class="chip-row">
+        <span class="chip"><span class="ic">&#128025;</span>Dari <b>GitHub</b>, repo publik</span>
+        <span class="chip"><span class="ic">&#127978;</span>Dari <b>Marketplace</b> skill</span>
+        <span class="chip"><span class="ic">&#128269;</span>Pakai <b>skill buat nyari skill</b> (meta!)</span>
+      </div>
+
+      <div class="skill-legend-grid cols-3">
+        <div class="skill-card">
+          <span class="ic">&#129445;</span>
+          <span class="name">Caveman</span>
+          <span class="desc">Hemat token AI ~65% tanpa ngurangin akurasi &mdash; jawabannya gaya "manusia gua", tapi kode &amp; command tetap presisi.</span>
+          <span class="src">&#128279; <a href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener">github.com/JuliusBrussee/caveman</a></span>
+        </div>
+        <div class="skill-card">
+          <span class="ic">&#128293;</span>
+          <span class="name">Grilling</span>
+          <span class="desc">Teknik "interogasi" Socratic: AI nanya satu-satu ke kamu sebelum eksekusi, biar dia gak diam-diam nebak requirement.</span>
+          <span class="src">&#128279; <a href="https://github.com/mattpocock/dictionary-of-ai-coding/blob/main/dictionary/Grilling.md" target="_blank" rel="noopener">dictionary-of-ai-coding/Grilling.md</a></span>
+        </div>
+        <div class="skill-card">
+          <span class="ic">&#127912;</span>
+          <span class="name">UI/UX Pro Max</span>
+          <span class="desc">Design intelligence buat bikin UI: 67 gaya, 161 palet warna, 57 font pairing, support 22+ tech stack.</span>
+          <span class="src">&#128279; <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener">github.com/nextlevelbuilder/ui-ux-pro-max-skill</a></span>
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>Sebelum bikin skill dari nol, cek dulu &mdash; bisa jadi udah ada yang bikin, malah lebih matang dari yang kamu bayangin.</p>
       </div>
     </div>
   </div>
