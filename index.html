@@ -588,6 +588,63 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
   color:var(--text-dim);
 }
 
+/* ---------- equation ---------- */
+.equation-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(10px,2vw,18px);
+  flex-wrap:wrap;
+}
+.eq-term{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:9px;
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  border-radius:16px;
+  padding:clamp(14px,2.4vw,20px) clamp(14px,2.4vw,22px);
+  max-width:260px;
+  text-align:center;
+}
+.eq-term .ic{font-size:clamp(1.8em,3.6vw,2.3em);line-height:1;}
+.eq-term .label{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(14px,1.9vw,18px);
+  color:var(--text-hi);
+}
+.eq-term .desc{
+  font-size:clamp(11px,1.35vw,13px);
+  color:var(--text-mid);
+  line-height:1.4;
+}
+.eq-op{
+  font-family:var(--mono);
+  font-size:clamp(20px,3.2vw,32px);
+  color:var(--text-dim);
+  font-weight:700;
+  flex-shrink:0;
+}
+.eq-result{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  background:linear-gradient(135deg,var(--amber),var(--coral));
+  border-radius:16px;
+  padding:clamp(16px,2.6vw,22px) clamp(20px,3.2vw,30px);
+  box-shadow:0 18px 40px -18px rgba(255,140,90,0.5);
+}
+.eq-result .label{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(22px,3.6vw,36px);
+  color:var(--ink-900);
+  letter-spacing:-.01em;
+}
+
 /* ---------- nav ---------- */
 .progress-bar{
   position:fixed;top:0;left:0;height:3px;
@@ -987,6 +1044,38 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
       </div>
       <h1 class="headline">Cukup Ngerti <em>Kenapa</em>.<br>Sekarang Saatnya <em>Nyoba</em>.</h1>
       <p class="lede">Target hari ini: bawa kalian sampai Step 3 &mdash; ngerti dan mulai bikin Agent sendiri.</p>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 1 -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 01</span>
+      <h2 class="headline">Skill Kamu + Skill AI = <em>Overkill</em></h2>
+      <p class="lede">Kombinasi paling simpel, tapi paling powerful, buat mulai bikin Agent.</p>
+
+      <div class="equation-row">
+        <div class="eq-term">
+          <span class="ic">&#128209;</span>
+          <span class="label">Skill Kamu<br>&mdash; Didokumentasikan</span>
+          <span class="desc">SOP, cara kerja, framework yang biasanya cuma nempel di kepala</span>
+        </div>
+        <span class="eq-op">+</span>
+        <div class="eq-term">
+          <span class="ic">&#129302;</span>
+          <span class="label">Skill AI</span>
+          <span class="desc">Ngikutin instruksi &amp; eksekusi konsisten, gak pernah capek</span>
+        </div>
+        <span class="eq-op">=</span>
+        <div class="eq-result">
+          <span class="label">OVERKILL</span>
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>Sebelum bikin Agent, kita butuh bahan bakunya dulu: <b>skill kamu yang udah didokumentasikan</b>. Itu yang kita praktekin sekarang.</p>
+      </div>
     </div>
   </div>
 
