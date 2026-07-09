@@ -816,6 +816,13 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
   font-size:clamp(9.5px,1.2vw,11px);
   color:var(--text-mid);
 }
+.spoke-node.fixed{
+  border-style:solid;
+  border-color:rgba(255,180,84,0.5);
+  background:rgba(255,180,84,0.08);
+  color:var(--text-hi);
+  font-weight:700;
+}
 
 .linear-diagram{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;}
 .linear-node{
@@ -851,6 +858,61 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
 @media (max-width:768px){
   .workflow-grid{grid-template-columns:1fr;}
 }
+
+/* ---------- pipeline call-entry ---------- */
+.entry-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.entry-row .entry-label{
+  font-size:clamp(12px,1.5vw,14.5px);
+  color:var(--text-mid);
+}
+.entry-row code{
+  font-family:var(--mono);
+  background:var(--panel-2);
+  border:1px solid var(--panel-border);
+  padding:5px 12px;
+  border-radius:8px;
+  color:var(--amber);
+  font-weight:700;
+  font-size:clamp(11.5px,1.5vw,14px);
+}
+.evolve-arrow{
+  text-align:center;
+  font-family:var(--mono);
+  font-size:clamp(11px,1.4vw,13px);
+  color:var(--text-dim);
+  letter-spacing:.03em;
+}
+
+/* ---------- closing quote ---------- */
+.quote-block{max-width:920px;margin:0 auto;}
+.quote-text{
+  font-family:var(--display);
+  font-style:italic;
+  font-weight:600;
+  font-size:clamp(19px,3.2vw,36px);
+  line-height:1.4;
+  color:var(--text-hi);
+  text-wrap:balance;
+}
+.quote-text .accent{
+  color:var(--amber);
+  font-style:normal;
+  font-weight:800;
+}
+.quote-attr{
+  margin-top:20px;
+  font-family:var(--mono);
+  font-size:clamp(12px,1.5vw,15px);
+  color:var(--text-dim);
+  letter-spacing:.03em;
+}
+.quote-attr::before{content:"\2014 ";}
 
 /* ---------- nav ---------- */
 .progress-bar{
@@ -1541,6 +1603,84 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
       <div class="takeaway">
         <span class="ic">&#128161;</span>
         <p>Gak ada yang paling benar. <b>Modular</b> buat kasus yang variatif &amp; butuh judgment; <b>Linear</b> buat proses yang udah jelas &amp; butuh konsistensi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 7 -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 07</span>
+      <h2 class="headline">Gabungin Skill: Bikin <em>Pipeline</em></h2>
+      <p class="lede">Bikin satu skill baru yang tugasnya cuma manggil skill-skill lain, sesuai urutan.</p>
+
+      <div class="entry-row">
+        <span class="entry-label">User cuma manggil satu skill:</span>
+        <code>/prd-to-uat-pipeline</code>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot amber"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-label">prd-to-uat-pipeline/SKILL.md</span>
+        </div>
+        <div class="terminal-body">Step 1: panggil <span class="req">skill-prd</span>            <span class="note">&rarr; hasil: PRD.md</span>
+Step 2: feed PRD.md ke <span class="req">skill-uat-scenario</span>  <span class="note">&rarr; hasil: UAT-scenarios.md</span>
+Step 3: gabungin dua-duanya jadi satu paket output</div>
+      </div>
+
+      <div class="linear-diagram">
+        <span class="linear-node">skill-prd</span>
+        <span class="linear-arrow">&#8594;</span>
+        <span class="linear-node">skill-uat-scenario</span>
+        <span class="linear-arrow">&#8594;</span>
+        <span class="linear-node">Output Gabungan</span>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>User cuma perlu manggil satu skill. Urutan &amp; "siapa manggil siapa" itu udah didokumentasikan di dalam pipeline-nya sendiri.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 8 -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 08</span>
+      <h2 class="headline">Nambah GTM &amp; Legal? <em>Ini Titik Baliknya</em></h2>
+      <p class="lede">Gampang nambahin step baru ke pipeline. Tapi hati-hati sama sinyal ini.</p>
+
+      <div class="hub-diagram">
+        <div class="hub-node">Orchestrator</div>
+        <div class="hub-spokes">
+          <span class="spoke-node fixed">PRD &rarr; UAT (selalu)</span>
+          <span class="spoke-node">GTM? (kalau perlu)</span>
+          <span class="spoke-node">Legal Assessment? (kalau nyentuh compliance)</span>
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>Begitu ada skill yang sifatnya <b>kondisional</b> &mdash; gak selalu perlu jalan &mdash; itu sinyal buat pindah dari Linear ke Modular. Biasanya jadi <b>hybrid</b>: orchestrator yang mutusin skill kondisional mana yang jalan, sementara bagian yang emang selalu berurutan (PRD&rarr;UAT) tetap jalan sebagai satu pipeline kecil di dalamnya.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="slide cover">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Penutup</span>
+      <div class="quote-block">
+        <p class="quote-text">&ldquo;Saya cuma secepat dan sejelas instruksi yang kamu kasih. Kolaborasi yang sebenarnya bukan pas saya menggantikan pikiran kamu &mdash; tapi pas kamu berani <span class="accent">menuliskannya</span>.&rdquo;</p>
+        <p class="quote-attr">Claude</p>
+      </div>
+      <p class="lede">Makasih udah nyimak sampai sini. Sekarang giliran kalian yang nyoba.</p>
+      <div class="session-pills">
+        <span class="pill done">&#10003; Sesi 1 &middot; Motivasi</span>
+        <span class="pill done">&#10003; Sesi 2 &middot; Praktek Langsung</span>
       </div>
     </div>
   </div>
