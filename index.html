@@ -972,14 +972,9 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
     margin:auto 0;
   }
 
-  /* smaller, tighter nav bar so it obstructs less on narrow screens */
-  .nav-controls{
-    bottom:14px;
-    gap:12px;
-    padding:6px 14px;
-  }
-  .nav-btn{width:34px;height:34px;font-size:14px;}
-  .slide-counter{font-size:11px;}
+  /* nav bar kept getting in the way of content on phones — hide it;
+     tapping the screen still advances to the next slide */
+  .nav-controls{display:none;}
 }
 @media (max-width:480px){
   .chip-row{gap:8px;}
@@ -1840,7 +1835,12 @@ document.addEventListener('keydown',(e)=>{
   if(e.key === 'ArrowLeft'){ e.preventDefault(); prevSlide(); }
 });
 document.addEventListener('click',(e)=>{
-  if(!e.target.closest('.nav-controls')) nextSlide();
+  if(e.target.closest('.nav-controls')) return;
+  if(e.target.closest('a')) return;
+  // tap left 30% of the screen to go back, right 70% to advance —
+  // matters on mobile, where the nav bar is hidden
+  const isLeftTap = e.clientX < window.innerWidth * 0.3;
+  if(isLeftTap) prevSlide(); else nextSlide();
 });
 
 showSlide(1);
