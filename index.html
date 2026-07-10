@@ -1684,15 +1684,15 @@ description: <span class="req">Bikin draft PRD terstruktur dari brief singkat.
           <span class="terminal-dot green"></span>
           <span class="terminal-label">prd-to-uat-pipeline/SKILL.md</span>
         </div>
-        <div class="terminal-body">Step 1: panggil <span class="req">skill-prd</span>            <span class="note">&rarr; hasil: PRD.md</span>
-Step 2: feed PRD.md ke <span class="req">skill-uat-scenario</span>  <span class="note">&rarr; hasil: UAT-scenarios.md</span>
+        <div class="terminal-body">Step 1: panggil <span class="req">prd-writer</span>       <span class="note">&rarr; hasil: PRD.md</span>
+Step 2: feed PRD.md ke <span class="req">uat-writer</span>  <span class="note">&rarr; hasil: UAT-scenarios.md</span>
 Step 3: gabungin dua-duanya jadi satu paket output</div>
       </div>
 
       <div class="linear-diagram">
-        <span class="linear-node">skill-prd</span>
+        <span class="linear-node">prd-writer</span>
         <span class="linear-arrow">&#8594;</span>
-        <span class="linear-node">skill-uat-scenario</span>
+        <span class="linear-node">uat-writer</span>
         <span class="linear-arrow">&#8594;</span>
         <span class="linear-node">Output Gabungan</span>
       </div>
@@ -1723,6 +1723,44 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
       <div class="takeaway">
         <span class="ic">&#128161;</span>
         <p>Begitu ada skill yang sifatnya <b>kondisional</b> (gak selalu perlu jalan), itu sinyal buat pindah dari Linear ke Modular. Biasanya jadi <b>hybrid</b>: orchestrator yang mutusin skill kondisional mana yang jalan, sementara bagian yang emang selalu berurutan (PRD&rarr;UAT) tetap jalan sebagai satu pipeline kecil di dalamnya.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 9 (recap: balik ke roadmap awal) -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 10</span>
+      <h2 class="headline">Balik ke Roadmap Awal Kita</h2>
+      <p class="lede">Pipeline yang barusan kalian rakit itu, yang dimaksud "Bikin Agent" dari awal.</p>
+
+      <div class="roadmap-track">
+        <div class="step done">
+          <div class="step-badge">1</div>
+          <div class="step-label">AI Chatbot</div>
+        </div>
+        <div class="step done">
+          <div class="step-badge">2</div>
+          <div class="step-label">Prompt Engineering</div>
+        </div>
+        <div class="step target">
+          <div class="step-badge">&#10003;</div>
+          <div class="step-label">Bikin Agent</div>
+          <div class="step-tag">&#127881; tercapai hari ini</div>
+        </div>
+        <div class="step future">
+          <div class="step-badge">4</div>
+          <div class="step-label">Otomatisasi Proses</div>
+        </div>
+        <div class="step future">
+          <div class="step-badge">&#8734;</div>
+          <div class="step-label">...dan seterusnya</div>
+        </div>
+      </div>
+
+      <div class="target-banner">
+        <span class="ic">&#127881;</span>
+        <p>Orchestrator yang manggil beberapa skill, atau skill yang dijahit jadi pipeline: itu udah masuk kategori <b>Agent</b>. Skill = unit kerjanya, workflow (modular/linear) = cara dia gerak. Selamat, target hari ini tercapai.</p>
       </div>
     </div>
   </div>
