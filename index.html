@@ -952,6 +952,20 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
   .roadmap-track{flex-wrap:wrap;row-gap:18px;}
   .roadmap-track::before{display:none;}
   .pricing-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* stacked grids get much taller on narrow screens — let the slide
+     scroll internally instead of clipping content with overflow:hidden */
+  .slide{
+    justify-content:flex-start;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:96px; /* clear the fixed nav-controls bar */
+  }
+  .slide-content{
+    max-height:none;
+    overflow:visible;
+    margin:auto 0;
+  }
 }
 @media (max-width:480px){
   .chip-row{gap:8px;}
