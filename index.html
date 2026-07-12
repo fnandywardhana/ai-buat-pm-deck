@@ -1623,10 +1623,106 @@ description: <span class="req">Bikin draft PRD terstruktur dari brief singkat.
     </div>
   </div>
 
-  <!-- Sesi 2 - Slide 6 -->
+  <!-- Sesi 2 - Slide: CLAUDE.md -->
   <div class="slide">
     <div class="slide-content">
       <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 07</span>
+      <h2 class="headline"><em>CLAUDE.md</em>: Otak Proyek yang Selalu Kebaca</h2>
+      <p class="lede">Skill itu kemampuan. Tapi identitas &amp; aturan main si agent ditulis di mana? Di sini.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card agent">
+          <div class="compare-role">
+            <span class="ic">&#129504;</span>
+            <div class="txt">
+              <span class="kind">CLAUDE.md</span>
+              <span class="name">Selalu Dimuat</span>
+            </div>
+          </div>
+          <p class="compare-desc">Otomatis kebaca <b>tiap sesi dimulai</b>, tanpa dipanggil. Isinya identitas &amp; aturan main proyek: siapa dia, bahasa, gaya, fase kerja, quality gate. <b>Satu per proyek</b> (plus satu global di <b>~/.claude/CLAUDE.md</b>).</p>
+        </div>
+        <div class="compare-card">
+          <div class="compare-role">
+            <span class="ic">&#128196;</span>
+            <div class="txt">
+              <span class="kind">SKILL.md</span>
+              <span class="name">Dipanggil Saat Perlu</span>
+            </div>
+          </div>
+          <p class="compare-desc">Dibaca <b>on-demand</b> kalau task-nya cocok sama description (progressive disclosure, kayak slide sebelumnya). Isinya kemampuan spesifik. <b>Bisa banyak</b>, tinggal nambah folder.</p>
+        </div>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot amber"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-label">the-papoy/CLAUDE.md <span class="note">(cuplikan)</span></span>
+        </div>
+        <div class="terminal-body">Kamu adalah <span class="req">Gru</span>, orchestrator The Papoy.
+- Percakapan: Bahasa Indonesia &middot; semua dokumen: English
+- Fase kerja: interview &#8594; riset &#8594; PRD &#8594; UX+tech &#8594; UAT+GTM &#8594; legal
+- Quality gate: cek konsistensi &amp; halusinasi, maks 2 ronde revisi</div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p><b>SKILL.md</b> ngajarin Claude <b>cara</b> ngerjain sesuatu. <b>CLAUDE.md</b> nentuin <b>siapa dia</b> di proyek ini dan aturan mainnya. Orchestrator kayak Gru hidupnya di file ini.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide: subagent setup -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 08</span>
+      <h2 class="headline">Rekrut Anggota Tim: <em>Subagent</em></h2>
+      <p class="lede">Satu file .md per agent di <b>.claude/agents/</b>. Strukturnya mirip skill, bedanya ini "orang", bukan kemampuan.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot amber"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-label">.claude/agents/bob.md</span>
+        </div>
+        <div class="terminal-body">---
+name: <span class="req">bob</span>
+description: <span class="req">Bob &mdash; QA Lead. Dipanggil buat bikin uat.md
+  dari PRD yang udah approved.</span>
+tools: <span class="req">Read, Write, Grep, Glob, Skill</span>
+---
+Kamu adalah Bob, QA Lead. Baca prd.md, susun skenario UAT
+per user story, pakai skill test-scenarios&hellip;</div>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <span class="step-text"><b>description</b> = radar, sama persis kayak skill: ini yang bikin orchestrator tahu kapan harus dispatch si agent.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <span class="step-text"><b>tools</b> = pagar: kasih seperlunya aja. Bob cuma perlu baca-tulis dokumen, dia gak perlu akses internet atau jalanin command.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <span class="step-text">Tiap dispatch dapat <b>konteks bersih</b> &mdash; fokus ke satu tugas, gak keganggu obrolan panjang di sesi utama. Manggilnya otomatis, atau sebut nama: <code>"Bob, buatkan UAT dari prd.md"</code></span>
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>Sekarang lengkap tiga "tempat naruh": <b>CLAUDE.md</b> = otak &amp; aturan main, <b>.claude/skills/</b> = kemampuan, <b>.claude/agents/</b> = anggota tim. Tiga file markdown ini bahan baku semua yang kita rakit habis ini.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 6 -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 09</span>
       <h2 class="headline">Bikin Workflow: <em>Modular</em> vs <em>Linear</em></h2>
       <p class="lede">Dua cara nyusun kerja bareng multi-agent. Pilihannya tergantung kebutuhan.</p>
 
@@ -1691,7 +1787,7 @@ description: <span class="req">Bikin draft PRD terstruktur dari brief singkat.
   <!-- Sesi 2 - Slide 7 -->
   <div class="slide">
     <div class="slide-content">
-      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 08</span>
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 10</span>
       <h2 class="headline">Gabungin Skill: Bikin <em>Pipeline</em></h2>
       <p class="lede">Bikin satu skill baru yang tugasnya cuma manggil skill-skill lain, sesuai urutan.</p>
 
@@ -1730,7 +1826,7 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
   <!-- Sesi 2 - Slide 8 -->
   <div class="slide">
     <div class="slide-content">
-      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 09</span>
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 11</span>
       <h2 class="headline">Nambah GTM &amp; Legal? <em>Ini Titik Baliknya</em></h2>
       <p class="lede">Gampang nambahin step baru ke pipeline. Tapi hati-hati sama sinyal ini.</p>
 
@@ -1753,7 +1849,7 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
   <!-- Sesi 2 - Slide 8.5: studi kasus The Papoy -->
   <div class="slide">
     <div class="slide-content">
-      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 10</span>
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 12</span>
       <h2 class="headline">Studi Kasus Nyata: <em>The Papoy</em></h2>
       <p class="lede">Tim produk AI yang saya pakai sehari-hari. Lahirnya persis lewat jalur tadi: workflow dulu, baru jadi agent.</p>
 
@@ -1815,7 +1911,7 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
   <!-- Sesi 2 - Slide 9 (recap: balik ke roadmap awal) -->
   <div class="slide">
     <div class="slide-content">
-      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 11</span>
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 13</span>
       <h2 class="headline">Balik ke Roadmap Awal Kita</h2>
       <p class="lede">Workflow yang barusan kalian rakit, plus agent yang menjalankannya: itu yang dimaksud "Bikin Agent" dari awal.</p>
 
