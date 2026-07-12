@@ -1750,10 +1750,72 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
     </div>
   </div>
 
-  <!-- Sesi 2 - Slide 9 (recap: balik ke roadmap awal) -->
+  <!-- Sesi 2 - Slide 8.5: studi kasus The Papoy -->
   <div class="slide">
     <div class="slide-content">
       <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 10</span>
+      <h2 class="headline">Studi Kasus Nyata: <em>The Papoy</em></h2>
+      <p class="lede">Tim produk AI yang saya pakai sehari-hari. Lahirnya persis lewat jalur tadi: workflow dulu, baru jadi agent.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-role">
+            <span class="ic">&#128220;</span>
+            <div class="txt">
+              <span class="kind">Versi 1 &middot; Workflow Linear</span>
+              <span class="name">Satu Prompt, Urutan Fix</span>
+            </div>
+          </div>
+          <div class="flow-row">
+            <span class="flow-node">Riset</span>
+            <span class="flow-arrow">&#8594;</span>
+            <span class="flow-node">PRD</span>
+            <span class="flow-arrow">&#8594;</span>
+            <span class="flow-node">UAT</span>
+            <span class="flow-arrow">&#8594;</span>
+            <span class="flow-node">GTM</span>
+            <span class="flow-arrow">&#8594;</span>
+            <span class="flow-node">Legal</span>
+          </div>
+          <p class="compare-desc">Satu system prompt 307 baris, satu sesi chat. "Kevin", "Stuart", "Bob" cuma <b>persona role-play</b>, dan semua fase selalu jalan berurutan &mdash; perlu atau nggak.</p>
+        </div>
+
+        <div class="compare-card agent">
+          <div class="compare-role">
+            <span class="ic">&#127820;</span>
+            <div class="txt">
+              <span class="kind">Sekarang &middot; Agent (Hybrid)</span>
+              <span class="name">1 Orchestrator + 8 Agent + 40-an Skill</span>
+            </div>
+          </div>
+          <div class="hub-diagram">
+            <div class="hub-node">Gru &middot; orchestrator</div>
+            <div class="hub-spokes">
+              <span class="spoke-node fixed">Stuart &middot; PRD</span>
+              <span class="spoke-node fixed">Jorge &middot; tech spec</span>
+              <span class="spoke-node fixed">Bob &middot; UAT</span>
+              <span class="spoke-node">Kevin &middot; riset?</span>
+              <span class="spoke-node">Carl &middot; UX?</span>
+              <span class="spoke-node">Dave &middot; GTM?</span>
+              <span class="spoke-node">Phil &middot; legal?</span>
+              <span class="spoke-node">Otto &middot; FAQ?</span>
+            </div>
+          </div>
+          <p class="compare-desc">Tiap nama = <b>subagent beneran</b>: konteks bersih, tools dibatasi, skill nempel di masing-masing (Kevin 20 skill riset, Dave 11 skill GTM, Carl <b>ui-ux-pro-max</b>, Gru pakai <b>grilling</b> &amp; <b>humanizer</b>). Gru yang mutusin siapa jalan, Carl+Jorge bisa paralel.</p>
+        </div>
+      </div>
+
+      <div class="takeaway">
+        <span class="ic">&#128161;</span>
+        <p>Titik baliknya persis slide sebelumnya: begitu Legal &amp; CS FAQ jadi <b>kondisional</b> (tergantung proyeknya nyentuh compliance / customer-facing atau nggak), urutan fix gak cukup &mdash; Gru harus jadi orchestrator. Hasil nyatanya: <b>6 paket dokumentasi produk</b> (riset, PRD, prototype UX, tech spec, UAT, GTM, legal) dalam ~3 minggu.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sesi 2 - Slide 9 (recap: balik ke roadmap awal) -->
+  <div class="slide">
+    <div class="slide-content">
+      <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 11</span>
       <h2 class="headline">Balik ke Roadmap Awal Kita</h2>
       <p class="lede">Workflow yang barusan kalian rakit, plus agent yang menjalankannya: itu yang dimaksud "Bikin Agent" dari awal.</p>
 
