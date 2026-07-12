@@ -1048,7 +1048,7 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
     <div class="slide-content">
       <span class="eyebrow"><span class="dot"></span>Sesi 1 &middot; Motivasi &mdash; 01</span>
       <h2 class="headline">"AI" Itu Bukan <em>Satu</em> Barang</h2>
-      <p class="lede">Ratusan model, beda "otak", beda jagoannya. Dan mereka nggak pernah diem, terus belajar tiap beberapa bulan.</p>
+      <p class="lede">Ratusan model, beda "otak", beda jagoannya. Dan mereka nggak pernah diem, versi barunya dirilis tiap beberapa bulan.</p>
 
       <div class="chip-row">
         <span class="chip"><span class="ic">&#128187;</span>Jago <b>Coding</b></span>
@@ -1226,12 +1226,12 @@ h2.headline{font-size:clamp(28px,4.6vw,58px);}
         <div class="price-card">
           <span class="name">Claude</span>
           <span class="free-tag">&#10003; ada free tier</span>
-          <span class="cost-line">Pro <b>$20</b>/bln &middot; API mulai <b>$3</b>/<b>$15</b> per 1M token</span>
+          <span class="cost-line">Pro <b>$20</b>/bln &middot; API mulai <b>$1</b>/<b>$5</b> per 1M token (Haiku), Sonnet <b>$3</b>/<b>$15</b></span>
         </div>
         <div class="price-card">
           <span class="name">Gemini</span>
           <span class="free-tag">&#10003; ada free tier</span>
-          <span class="cost-line">AI Pro <b>$19.99</b>/bln &middot; AI Ultra <b>$99&ndash;199</b>/bln</span>
+          <span class="cost-line">AI Pro <b>$19.99</b>/bln &middot; AI Ultra <b>$100&ndash;200</b>/bln</span>
         </div>
         <div class="price-card cheapest">
           <span class="name">DeepSeek</span>
@@ -1500,7 +1500,7 @@ description: <span class="req">Bikin draft PRD terstruktur dari brief singkat.
           </div>
           <div class="step-list">
             <div class="step-item"><span class="step-num">1</span><span class="step-text">Buka <b>Settings &rarr; Capabilities</b>, aktifin "Code execution and file creation"</span></div>
-            <div class="step-item"><span class="step-num">2</span><span class="step-text">Masuk ke <b>Settings &rarr; Customize &rarr; Skills</b></span></div>
+            <div class="step-item"><span class="step-num">2</span><span class="step-text">Masuk ke <b>Settings &rarr; Capabilities &rarr; Skills</b></span></div>
             <div class="step-item"><span class="step-num">3</span><span class="step-text"><b>Upload</b> skill kamu (zip foldernya, bukan cuma file SKILL.md), atau tinggal toggle-on skill bawaan</span></div>
             <div class="step-item"><span class="step-num">4</span><span class="step-text">Claude otomatis baca SKILL.md &amp; nampilin nama skill-nya</span></div>
           </div>
@@ -1593,7 +1593,7 @@ description: <span class="req">Bikin draft PRD terstruktur dari brief singkat.
         <div class="skill-card">
           <span class="ic">&#129445;</span>
           <span class="name">Caveman</span>
-          <span class="desc">Hemat token AI ~65% tanpa ngurangin akurasi. Jawabannya gaya "manusia gua", tapi kode &amp; command tetap presisi.</span>
+          <span class="desc">Hemat token AI ~75% tanpa ngurangin akurasi. Jawabannya gaya "manusia gua", tapi kode &amp; command tetap presisi.</span>
           <span class="src">&#128279; <a href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener">github.com/JuliusBrussee/caveman</a></span>
         </div>
         <div class="skill-card">
@@ -1683,7 +1683,7 @@ description: <span class="req">Bikin draft PRD terstruktur dari brief singkat.
 
       <div class="takeaway">
         <span class="ic">&#128161;</span>
-        <p>Gak ada yang paling benar. <b>Modular</b> buat kasus yang variatif &amp; butuh judgment; <b>Linear</b> buat proses yang udah jelas &amp; butuh konsistensi.</p>
+        <p>Gak ada yang paling benar. <b>Modular</b> buat kasus yang variatif &amp; butuh judgment; <b>Linear</b> buat proses yang udah jelas &amp; butuh konsistensi. Istilah resminya (versi Anthropic): Linear yang urutannya fix disebut <b>workflow</b>; Modular, di mana AI-nya sendiri yang mutusin langkah &amp; tool-nya, itulah yang disebut <b>agent</b>.</p>
       </div>
     </div>
   </div>
@@ -1755,7 +1755,7 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
     <div class="slide-content">
       <span class="eyebrow"><span class="dot"></span>Sesi 2 &middot; Praktek Langsung &mdash; 10</span>
       <h2 class="headline">Balik ke Roadmap Awal Kita</h2>
-      <p class="lede">Pipeline yang barusan kalian rakit itu, yang dimaksud "Bikin Agent" dari awal.</p>
+      <p class="lede">Workflow yang barusan kalian rakit, plus agent yang menjalankannya: itu yang dimaksud "Bikin Agent" dari awal.</p>
 
       <div class="roadmap-track">
         <div class="step done">
@@ -1783,7 +1783,7 @@ Step 3: gabungin dua-duanya jadi satu paket output</div>
 
       <div class="target-banner">
         <span class="ic">&#127881;</span>
-        <p>Orchestrator yang manggil beberapa skill, atau skill yang dijahit jadi pipeline: itu udah masuk kategori <b>Agent</b>. Skill = unit kerjanya, workflow (modular/linear) = cara dia gerak. Selamat, target hari ini tercapai.</p>
+        <p>Biar presisi: pipeline linear yang urutannya fix itu <b>workflow</b>. Begitu ada <b>orchestrator</b> yang mutusin sendiri skill mana yang jalan, itu baru <b>agent</b>. Dan dua-duanya kalian jalanin di dalam Claude, yang memang sebuah agent: dikasih tujuan, dia yang milih langkah &amp; tool-nya. Skill = unit kerjanya, workflow = jalur kerjanya, agent = yang mutusin. Selamat, target hari ini tercapai.</p>
       </div>
     </div>
   </div>
